@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://khushwant1809.github.io',
-  base: '/reyansh-art/',
+  site: 'https://reyansh.art',
+  base: '/',
   build: {
     assets: '_astro',
   },
