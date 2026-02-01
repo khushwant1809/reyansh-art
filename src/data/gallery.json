@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Artwork",
+    "date": "2026-01-15",
+    "image": "/images/art1.jpg",
+    "medium": ""
+  },
+  {
+    "id": "2",
+    "title": "Artwork",
+    "date": "2026-01-22",
+    "image": "/images/art2.jpg",
+    "medium": ""
+  },
+  {
+    "id": "3",
+    "title": "Artwork",
+    "date": "2026-01-29",
+    "image": "/images/art3.jpg",
+    "medium": ""
+  },
+  {
+    "id": "4",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art4.jpg",
+    "medium": ""
+  },
+  {
+    "id": "5",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art5.jpg",
+    "medium": ""
+  },
+  {
+    "id": "6",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art6.jpg",
+    "medium": ""
+  },
+  {
+    "id": "7",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art7.jpg",
+    "medium": ""
+  },
+  {
+    "id": "8",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art8.jpg",
+    "medium": ""
+  },
+  {
+    "id": "9",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art9.jpg",
+    "medium": ""
+  },
+  {
+    "id": "10",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art10.jpg",
+    "medium": ""
+  },
+  {
+    "id": "11",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art11.jpg",
+    "medium": ""
+  },
+  {
+    "id": "12",
+    "title": "Artwork",
+    "date": "2026-02-01",
+    "image": "/images/art12.jpg",
+    "medium": ""
+  }
+]

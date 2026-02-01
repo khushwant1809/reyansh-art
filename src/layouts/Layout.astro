@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Art and paintings by Reyansh" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=DM+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo">Reyansh</a>
+        <span class="tagline">Art Portfolio</span>
+      </div>
+    </header>
+    <main class="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Reyansh Shah · Art portfolio · 4th grader · Drawing, Roblox, Minecraft, Swimming, Taekwondo, Music</p>
+    </footer>
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button id="lightbox-close" type="button" aria-label="Close">Close</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" />
+        <div class="lightbox-caption">
+          <h3 id="lightbox-title"></h3>
+          <span id="lightbox-date" class="date"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDate = document.getElementById('lightbox-date');
+        const closeBtn = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('[data-lightbox]').forEach((el) => {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            const img = el.querySelector('img');
+            const title = el.getAttribute('data-title');
+            const date = el.getAttribute('data-date');
+            if (lightbox && lightboxImg && img) {
+              lightboxImg.src = img.src.replace(/\/_\w+\//, '/').replace(/\?\w+/, '') || img.dataset.full || img.src;
+              lightboxImg.alt = img.alt;
+              if (lightboxTitle) lightboxTitle.textContent = title || '';
+              if (lightboxDate) lightboxDate.textContent = date || '';
+              lightbox.classList.add('open');
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        });
+
+        function closeLightbox() {
+          if (lightbox) {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (lightbox) {
+          lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+      });
+    </script>
+  </body>
+</html>
