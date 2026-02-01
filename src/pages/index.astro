@@ -10,6 +10,8 @@ const gallery = galleryData as Array<{
   image: string;
   medium?: string;
 }>;
+const base = import.meta.env.BASE_URL;
+const imageUrl = (path: string) => base + path.replace(/^\//, '');
 ---
 <Layout title="Reyansh Shah · Art Portfolio" description="Art portfolio of Reyansh Shah — 4th grader who loves to draw, play Roblox and Minecraft, swim, do Taekwondo, and make music.">
   <section class="hero">
@@ -28,14 +30,14 @@ const gallery = galleryData as Array<{
     {gallery.map((item) => (
       <li class="gallery-item">
         <a
-          href={item.image}
+          href={imageUrl(item.image)}
           class="gallery-link"
           data-lightbox
           data-title={item.title}
           data-date={item.date}
         >
           <div class="gallery-thumb-wrap">
-            <img src={item.image} alt={item.title} loading="lazy" />
+            <img src={imageUrl(item.image)} alt={item.title} loading="lazy" />
           </div>
           <div class="gallery-caption">
             <h2>{item.title}</h2>
