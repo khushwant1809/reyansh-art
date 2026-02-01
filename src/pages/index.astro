@@ -10,7 +10,7 @@ const gallery = galleryData as Array<{
   image: string;
   medium?: string;
 }>;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL ?? '/';
 const imageUrl = (path: string) => base + path.replace(/^\//, '');
 ---
 <Layout title="Reyansh Shah · Art Portfolio" description="Art portfolio of Reyansh Shah — 4th grader who loves to draw, play Roblox and Minecraft, swim, do Taekwondo, and make music.">
