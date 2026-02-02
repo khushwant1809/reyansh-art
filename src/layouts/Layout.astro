@@ -34,6 +34,8 @@ const base = import.meta.env.BASE_URL ?? '/';
     </footer>
     <div id="lightbox" class="lightbox" aria-hidden="true">
       <button id="lightbox-close" type="button" aria-label="Close">Close</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+      <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">›</button>
       <div class="lightbox-content">
         <img id="lightbox-img" src="" alt="" />
         <div class="lightbox-caption">
@@ -49,18 +51,39 @@ const base = import.meta.env.BASE_URL ?? '/';
         const lightboxTitle = document.getElementById('lightbox-title');
         const lightboxDate = document.getElementById('lightbox-date');
         const closeBtn = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
 
-        document.querySelectorAll('[data-lightbox]').forEach((el) => {
+        const links = Array.from(document.querySelectorAll('[data-lightbox]'));
+        let currentIndex = 0;
+
+        function getItemData(el) {
+          const img = el.querySelector('img');
+          return {
+            src: img ? (img.src.replace(/\/_\w+\//, '/').replace(/\?\w+/, '') || img.dataset.full || img.src) : '',
+            alt: img ? img.alt : '',
+            title: el.getAttribute('data-title') || '',
+            date: el.getAttribute('data-date') || ''
+          };
+        }
+
+        function showItem(index) {
+          if (index < 0) index = links.length - 1;
+          if (index >= links.length) index = 0;
+          currentIndex = index;
+          const data = getItemData(links[currentIndex]);
+          if (lightboxImg) lightboxImg.src = data.src;
+          if (lightboxImg) lightboxImg.alt = data.alt;
+          if (lightboxTitle) lightboxTitle.textContent = data.title;
+          if (lightboxDate) lightboxDate.textContent = data.date;
+        }
+
+        document.querySelectorAll('[data-lightbox]').forEach((el, i) => {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            const img = el.querySelector('img');
-            const title = el.getAttribute('data-title');
-            const date = el.getAttribute('data-date');
-            if (lightbox && lightboxImg && img) {
-              lightboxImg.src = img.src.replace(/\/_\w+\//, '/').replace(/\?\w+/, '') || img.dataset.full || img.src;
-              lightboxImg.alt = img.alt;
-              if (lightboxTitle) lightboxTitle.textContent = title || '';
-              if (lightboxDate) lightboxDate.textContent = date || '';
+            currentIndex = i;
+            showItem(currentIndex);
+            if (lightbox) {
               lightbox.classList.add('open');
               document.body.style.overflow = 'hidden';
             }
@@ -75,10 +98,37 @@ const base = import.meta.env.BASE_URL ?? '/';
         }
 
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showItem(currentIndex - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showItem(currentIndex + 1); });
         if (lightbox) {
           lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
         }
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeLightbox();
+          if (!lightbox || !lightbox.classList.contains('open')) return;
+          if (e.key === 'ArrowLeft') { e.preventDefault(); showItem(currentIndex - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); showItem(currentIndex + 1); }
+        });
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        if (galleryItems.length > 0) {
+          const featuredIndex = Math.floor(Math.random() * galleryItems.length);
+          galleryItems[featuredIndex].classList.add('featured');
+        }
+
+        let logoClicks = 0;
+        const logo = document.querySelector('.logo');
+        if (logo) {
+          logo.addEventListener('click', (e) => {
+            if (e.ctrlKey || e.metaKey) return;
+            logoClicks++;
+            if (logoClicks >= 5) {
+              logoClicks = 0;
+              logo.textContent = logo.textContent === 'Reyansh' ? '🎨 Reyansh 🎨' : 'Reyansh';
+              setTimeout(() => { logo.textContent = 'Reyansh'; }, 1500);
+            }
+          });
+        }
       });
     </script>
   </body>
