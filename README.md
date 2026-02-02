@@ -28,7 +28,7 @@ A static gallery site for Reyansh's paintings and drawings, with a gaming (Roblo
 To add a new painting or drawing:
 
 1. **Add the image file**  
-   Put the image (e.g. `my-painting.jpg` or `.png`) in **`public/images/`**.
+   Put the image (e.g. `my-painting.jpg` or `.png`) in **`public/images/`**. Then run **`npm run optimize-images`** to resize and compress it for faster loading (max 1200px, good quality).
 
 2. **Add an entry to the gallery**  
    Edit **`src/data/gallery.json`** and add a new object (use the next `id` and your image path):
@@ -67,6 +67,7 @@ This repo is set up for **GitHub Pages**: push to `main` and the workflow in `.g
 - `src/styles/global.css` – gaming-themed styles  
 - `netlify.toml` – Netlify build config  
 - `.github/workflows/deploy.yml` – GitHub Pages deploy workflow  
+- `scripts/optimize-images.mjs` – resize/compress images (run `npm run optimize-images` when adding new art)  
 
 ---
 
