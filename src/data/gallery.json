@@ -82,5 +82,61 @@
     "date": "2026-02-01",
     "image": "/images/art12.jpg",
     "medium": ""
+  },
+  {
+    "id": "13",
+    "title": "Artwork",
+    "date": "2026-02-08",
+    "image": "/images/art13.jpg",
+    "medium": ""
+  },
+  {
+    "id": "14",
+    "title": "Artwork",
+    "date": "2026-02-08",
+    "image": "/images/art14.jpg",
+    "medium": ""
+  },
+  {
+    "id": "15",
+    "title": "Artwork",
+    "date": "2026-02-08",
+    "image": "/images/art15.jpg",
+    "medium": ""
+  },
+  {
+    "id": "16",
+    "title": "Artwork",
+    "date": "2026-02-08",
+    "image": "/images/art16.jpg",
+    "medium": ""
+  },
+  {
+    "id": "17",
+    "title": "Artwork",
+    "date": "2026-02-12",
+    "image": "/images/art17.jpg",
+    "medium": ""
+  },
+  {
+    "id": "18",
+    "title": "Artwork",
+    "date": "2026-02-13",
+    "image": "/images/art18.jpg",
+    "medium": ""
+  },
+  {
+    "id": "19",
+    "title": "Artwork",
+    "date": "2026-02-13",
+    "image": "/images/art19.jpg",
+    "medium": ""
+  },
+  {
+    "id": "20",
+    "title": "Artwork",
+    "date": "2026-02-19",
+    "image": "/images/art20.jpg",
+    "medium": ""
   }
 ]
