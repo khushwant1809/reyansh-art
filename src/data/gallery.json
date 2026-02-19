@@ -1,142 +1,22 @@
 [
-  {
-    "id": "1",
-    "title": "Artwork",
-    "date": "2026-01-15",
-    "image": "/images/art1.jpg",
-    "medium": ""
-  },
-  {
-    "id": "2",
-    "title": "Artwork",
-    "date": "2026-01-22",
-    "image": "/images/art2.jpg",
-    "medium": ""
-  },
-  {
-    "id": "3",
-    "title": "Artwork",
-    "date": "2026-01-29",
-    "image": "/images/art3.jpg",
-    "medium": ""
-  },
-  {
-    "id": "4",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art4.jpg",
-    "medium": ""
-  },
-  {
-    "id": "5",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art5.jpg",
-    "medium": ""
-  },
-  {
-    "id": "6",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art6.jpg",
-    "medium": ""
-  },
-  {
-    "id": "7",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art7.jpg",
-    "medium": ""
-  },
-  {
-    "id": "8",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art8.jpg",
-    "medium": ""
-  },
-  {
-    "id": "9",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art9.jpg",
-    "medium": ""
-  },
-  {
-    "id": "10",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art10.jpg",
-    "medium": ""
-  },
-  {
-    "id": "11",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art11.jpg",
-    "medium": ""
-  },
-  {
-    "id": "12",
-    "title": "Artwork",
-    "date": "2026-02-01",
-    "image": "/images/art12.jpg",
-    "medium": ""
-  },
-  {
-    "id": "13",
-    "title": "Artwork",
-    "date": "2026-02-08",
-    "image": "/images/art13.jpg",
-    "medium": ""
-  },
-  {
-    "id": "14",
-    "title": "Artwork",
-    "date": "2026-02-08",
-    "image": "/images/art14.jpg",
-    "medium": ""
-  },
-  {
-    "id": "15",
-    "title": "Artwork",
-    "date": "2026-02-08",
-    "image": "/images/art15.jpg",
-    "medium": ""
-  },
-  {
-    "id": "16",
-    "title": "Artwork",
-    "date": "2026-02-08",
-    "image": "/images/art16.jpg",
-    "medium": ""
-  },
-  {
-    "id": "17",
-    "title": "Artwork",
-    "date": "2026-02-12",
-    "image": "/images/art17.jpg",
-    "medium": ""
-  },
-  {
-    "id": "18",
-    "title": "Artwork",
-    "date": "2026-02-13",
-    "image": "/images/art18.jpg",
-    "medium": ""
-  },
-  {
-    "id": "19",
-    "title": "Artwork",
-    "date": "2026-02-13",
-    "image": "/images/art19.jpg",
-    "medium": ""
-  },
-  {
-    "id": "20",
-    "title": "Artwork",
-    "date": "2026-02-19",
-    "image": "/images/art20.jpg",
-    "medium": ""
-  }
+  {"id":"13","title":"Ship","date":"2026-02-18","image":"/images/art13.jpg","medium":""},
+  {"id":"19","title":"NyanCat","date":"2026-02-13","image":"/images/art19.jpg","medium":""},
+  {"id":"4","title":"Artwork","date":"2026-02-01","image":"/images/art4.jpg","medium":""},
+  {"id":"5","title":"Artwork","date":"2026-02-01","image":"/images/art5.jpg","medium":""},
+  {"id":"6","title":"Artwork","date":"2026-02-01","image":"/images/art6.jpg","medium":""},
+  {"id":"7","title":"Artwork","date":"2026-02-01","image":"/images/art7.jpg","medium":""},
+  {"id":"8","title":"Artwork","date":"2026-02-01","image":"/images/art8.jpg","medium":""},
+  {"id":"9","title":"Artwork","date":"2026-02-01","image":"/images/art9.jpg","medium":""},
+  {"id":"10","title":"Artwork","date":"2026-02-01","image":"/images/art10.jpg","medium":""},
+  {"id":"11","title":"Artwork","date":"2026-02-01","image":"/images/art11.jpg","medium":""},
+  {"id":"12","title":"Artwork","date":"2026-02-01","image":"/images/art12.jpg","medium":""},
+  {"id":"20","title":"Mystical Creature","date":"2026-02-01","image":"/images/art20.jpg","medium":""},
+  {"id":"3","title":"Artwork","date":"2026-01-29","image":"/images/art3.jpg","medium":""},
+  {"id":"2","title":"Artwork","date":"2026-01-22","image":"/images/art2.jpg","medium":""},
+  {"id":"1","title":"Artwork","date":"2026-01-15","image":"/images/art1.jpg","medium":""},
+  {"id":"17","title":"Hand Tree","date":"2025-09-12","image":"/images/art17.jpg","medium":""},
+  {"id":"14","title":"Rainbow","date":"2025-07-08","image":"/images/art14.jpg","medium":""},
+  {"id":"18","title":"Mask 2","date":"2025-05-20","image":"/images/art18.jpg","medium":""},
+  {"id":"15","title":"Derby","date":"2025-04-30","image":"/images/art15.jpg","medium":""},
+  {"id":"16","title":"Mask 1","date":"2025-04-08","image":"/images/art16.jpg","medium":""}
 ]
