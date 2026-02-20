@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL ?? '/';
+
+// Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io
+const formAction = 'https://formspree.io/f/xqeddqnr';
+---
+
+<Layout title="Feedback · Reyansh Shah" description="Leave feedback or a comment for Reyansh.">
+  <section class="feedback-page">
+    <h1 class="feedback-title">Leave feedback</h1>
+    <p class="feedback-intro">Have something nice to say or a suggestion? Leave a comment and I’ll see it.</p>
+    <form class="feedback-form" action={formAction} method="POST">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="feedback-hidden" aria-hidden="true" />
+      <label class="feedback-label" for="feedback-name">Your name</label>
+      <input
+        type="text"
+        id="feedback-name"
+        name="name"
+        class="feedback-input"
+        required
+        placeholder="e.g. Mom"
+      />
+      <label class="feedback-label" for="feedback-email">Email (optional – so I can reply)</label>
+      <input
+        type="email"
+        id="feedback-email"
+        name="email"
+        class="feedback-input"
+        placeholder="your@email.com"
+      />
+      <label class="feedback-label" for="feedback-message">Your message</label>
+      <textarea
+        id="feedback-message"
+        name="message"
+        class="feedback-textarea"
+        rows="5"
+        required
+        placeholder="Write your comment or feedback here..."
+     ></textarea>
+      <button type="submit" class="feedback-submit">Send message</button>
+    </form>
+    <p class="feedback-back">
+      <a href={base}>Back to portfolio</a>
+    </p>
+  </section>
+</Layout>

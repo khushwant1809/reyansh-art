@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import galleryData from '../data/gallery.json';
+
+const gallery = galleryData as Array<{
+  id: string;
+  title: string;
+  date: string;
+  image: string;
+  medium?: string;
+  description?: string;
+}>;
+const base = import.meta.env.BASE_URL ?? '/';
+const imageUrl = (path: string) => base + path.replace(/^\//, '');
+
+const timelineItems = [...gallery].sort((a, b) => a.date.localeCompare(b.date));
+const yearStart = timelineItems[0]?.date.slice(0, 4) ?? '';
+const yearEnd = timelineItems[timelineItems.length - 1]?.date.slice(0, 4) ?? '';
+---
+<Layout title="Timeline · Reyansh Shah" description="Growth timeline of Reyansh's art from oldest to newest.">
+  <section class="timeline-page">
+    <h1 class="timeline-page-title">How far he's come</h1>
+    <p class="timeline-hint">Scroll right to see his journey from oldest to newest</p>
+    <div class="timeline-progress-wrap" aria-hidden="true">
+      <span class="timeline-progress-year">{yearStart}</span>
+      <div class="timeline-progress-bar">
+        <div class="timeline-progress-fill" id="timeline-progress-fill"></div>
+      </div>
+      <span class="timeline-progress-year">{yearEnd}</span>
+    </div>
+    <div class="timeline-fullwidth">
+      <div class="timeline-scroll" id="timeline-scroll">
+        <div class="timeline-track">
+          {timelineItems.map((item, i) => {
+            const year = item.date.slice(0, 4);
+            const prevYear = i > 0 ? timelineItems[i - 1].date.slice(0, 4) : '';
+            const showYear = year !== prevYear;
+            return (
+              <div class="timeline-item-wrap">
+                {showYear && <div class="timeline-year" aria-hidden="true">{year}</div>}
+                <a
+                  href={imageUrl(item.image)}
+                  class="timeline-item"
+                  data-lightbox
+                  data-title={item.title}
+                  data-date={item.date}
+                  data-description={item.description ?? ''}
+                >
+                  <div class="timeline-thumb">
+                    <img src={imageUrl(item.image)} alt={item.title} loading="lazy" />
+                  </div>
+                  <span class="timeline-title">{item.title}</span>
+                  <span class="timeline-date">{item.date}</span>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+    <p class="timeline-back">
+      <a href={base}>Back to portfolio</a>
+    </p>
+  </section>
+  <script>
+    (function () {
+      const scrollEl = document.getElementById('timeline-scroll');
+      const fillEl = document.getElementById('timeline-progress-fill');
+      const wraps = document.querySelectorAll('.timeline-item-wrap');
+
+      if (scrollEl && fillEl) {
+        function updateProgress() {
+          const { scrollLeft, scrollWidth, clientWidth } = scrollEl;
+          const max = scrollWidth - clientWidth;
+          const pct = max > 0 ? (scrollLeft / max) * 100 : 0;
+          fillEl.style.width = pct + '%';
+        }
+        scrollEl.addEventListener('scroll', updateProgress);
+        updateProgress();
+      }
+
+      if (wraps.length && scrollEl && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add('timeline-visible');
+          });
+        }, { root: scrollEl, rootMargin: '0 20px', threshold: 0.1 });
+        wraps.forEach((el) => io.observe(el));
+      }
+    })();
+  </script>
+</Layout>
